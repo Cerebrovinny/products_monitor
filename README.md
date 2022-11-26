@@ -28,10 +28,15 @@ Run the consumer to consume messages from the queue:
 go run cmd/consumer/main.go
 ```
 
+Build the Dockerfile.prod
+```bash
+docker build -t cerebrovinny/products_monitor:latest -f Dockerfile.prod .
+```
+
 ### How to run in Kubernetes
 Run the following command to start the application:
 ```bash
-kind create cluster --name=products-monitoring
+kind create cluster --name=products_monitor
 kubectl apply -f k8s
 ```
 
