@@ -7,6 +7,7 @@ import (
 	"github.com/Cerebrovinny/products_monitor/internal/order/infra/database"
 	"github.com/Cerebrovinny/products_monitor/internal/order/usecase"
 	"github.com/Cerebrovinny/products_monitor/pkg/rabbitmq"
+	_ "github.com/mattn/go-sqlite3"
 	amqp "github.com/rabbitmq/amqp091-go"
 )
 
