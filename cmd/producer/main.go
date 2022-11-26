@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"github.com/Cerebrovinny/products_monitor/internal/order/entity"
+	"github.com/google/uuid"
 	amqp "github.com/rabbitmq/amqp091-go"
 	"math/rand"
 )
@@ -30,8 +31,9 @@ func Publish(ch *amqp.Channel, order entity.Order) error {
 
 func GenerateOrder() entity.Order {
 	return entity.Order{
-		ID:     uuid.New().String(),
-		Prince: rand.Float64(),
+		ID:    uuid.New().String(),
+		Price: rand.Float64() * 100,
+		Tax:   rand.Float64() * 10,
 	}
 }
 
@@ -46,4 +48,11 @@ func main() {
 		panic(err)
 	}
 	defer ch.Close()
+	for i := 0; i < 100; i++ {
+		order := GenerateOrder()
+		err = Publish(ch, order)
+		if err != nil {
+			panic(err)
+		}
+	}
 }
