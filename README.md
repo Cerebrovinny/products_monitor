@@ -45,5 +45,5 @@ Check the deployment configuration
 kubectl get deployments
 ```
 
-Ps: Remember to access the deployment on Kubernetes, you need to change the domain for the RabbitMQ 
+Remember to access the deployment on Kubernetes, you need to change the domain for the RabbitMQ 
 currently is running in localhost
