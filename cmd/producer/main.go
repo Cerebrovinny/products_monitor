@@ -6,6 +6,7 @@ import (
 	"github.com/google/uuid"
 	amqp "github.com/rabbitmq/amqp091-go"
 	"math/rand"
+	"time"
 )
 
 func Publish(ch *amqp.Channel, order entity.Order) error {
@@ -48,9 +49,10 @@ func main() {
 		panic(err)
 	}
 	defer ch.Close()
-	for i := 0; i < 100; i++ {
+	for i := 0; i < 1000000; i++ {
 		order := GenerateOrder()
 		err = Publish(ch, order)
+		time.Sleep(300 * time.Millisecond)
 		if err != nil {
 			panic(err)
 		}

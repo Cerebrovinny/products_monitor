@@ -9,6 +9,7 @@ import (
 	"github.com/Cerebrovinny/products_monitor/pkg/rabbitmq"
 	_ "github.com/mattn/go-sqlite3"
 	amqp "github.com/rabbitmq/amqp091-go"
+	"time"
 )
 
 func main() {
@@ -41,5 +42,6 @@ func main() {
 		}
 		msg.Ack(false)
 		fmt.Println(outputDTO)
+		time.Sleep(500 * time.Millisecond)
 	}
 }
