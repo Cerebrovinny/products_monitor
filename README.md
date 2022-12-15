@@ -7,8 +7,8 @@ This is a script to consume orders from a queue.
 - RabbitMQ
 - Docker
 - Docker Compose
-- grafana
-- prometheus
+- Grafana
+- Prometheus
 - Kubernetes
 
 ### How to run
